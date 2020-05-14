@@ -1,6 +1,6 @@
 # Título del trabajo
 
-Descripción breve del proyecto a realizar (2-3 frases).
+El trabajo consiste en simular una base de datos que permita interactuar con los datos proporcionados por el usuario. Permitiendo agregar, modificar, eliminar o buscar pacientes registrados.
 
 ## Integrantes del equipo
 
@@ -8,4 +8,4 @@ Juan Cruz Sabaris Forciniti @jc-sabaris
 
 ## Objetivos del trabajo
 
-Lista de los objetivos que se persiguen con el trabajo propuesto.
+OBJETIVO ACTUAL: Uso de ficheros txt
