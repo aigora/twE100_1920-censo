@@ -1,4 +1,4 @@
-# Título del trabajo
+# Censo
 
 El trabajo consiste en simular una base de datos que permita interactuar con los datos proporcionados por el usuario. Permitiendo agregar, modificar, eliminar o buscar pacientes registrados.
 
