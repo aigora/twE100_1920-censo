@@ -1,1 +1,61 @@
-Hola mundo
+#include<stdio.h>
+#include<string.h>
+
+typedef struct 
+{
+char DNI[50];
+char nombre[50];
+char apellido[50];
+char COVID[50];
+}paciente;
+
+
+void presentacion(void);
+char eleccion    (void);
+
+void main(){
+	char opcion;
+	
+	presentacion ();
+	opcion = eleccion ();
+    
+    switch (opcion){
+    	case 'A':
+		case 'a':
+			
+			
+		case 'B':
+		case 'b':
+		
+		
+		case 'C':
+		case 'c':		
+	
+	
+		case 'D':
+		case 'd':
+	
+		default:
+				puts ("No ha pulsado un caracter valido");
+	
+}
+
+
+void presentacion (void)
+{
+	puts ("Este programa es una base de datos.\n\n");
+	puts ("Por favor indique pulsando la letra correspondiente la operacion que desea realizar");
+}
+
+char eleccion (void)
+{
+	char l;
+	puts ("A. Registrar paciente");
+	puts ("B. Modificar paciente");
+	puts ("C. Ver datos de un paciente");
+	puts ("D. Borrar paciente");
+	scanf ("%c", &l);
+	fflush (stdin);
+	
+	return l;
+}
