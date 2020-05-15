@@ -5,7 +5,9 @@ El trabajo consiste en simular una base de datos que permita interactuar con los
 ## Integrantes del equipo
 
 Juan Cruz Sabaris Forciniti @jc-sabaris
-Juan  Manuel Samaniego Franco @ Juan-samaniego
+
+Juan Manuel Samaniego Franco @ Juan-samaniego
+
 ## Objetivos del trabajo
 
 OBJETIVO ACTUAL: Uso de ficheros txt
