@@ -11,12 +11,16 @@ char COVID[50];
 
 
 void presentacion(void);
-char eleccion    (void);
+void Cierre (void);
+char eleccion (void);
 
 void main(){
 	char opcion;
 	
+   do {
+   	
 	presentacion ();
+	
 	opcion = eleccion ();
     
     switch (opcion){
@@ -38,6 +42,14 @@ void main(){
 	default:
 	puts ("No ha pulsado un caracter valido");
 }
+
+  opcion = eleccion ();
+
+} while ((opcion == 's')  || (opcion == 'S'));
+
+	Cierre ();
+	
+	return 123;
 
 
 void presentacion (void)
