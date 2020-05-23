@@ -9,8 +9,10 @@ char apellido[50];
 char COVID[50];
 }paciente;
 
-
 void presentacion(void);
+void reg_paciente(void);
+void leer_pacientes(void)
+void borrar(void);
 void Cierre (void);
 char eleccion (void);
 
@@ -24,20 +26,29 @@ void main(){
 	opcion = eleccion ();
     
     switch (opcion){
-    	case 'A':
+    
+	case 'A':
 	case 'a':
-			
-			
+	reg_paciente();
+    break;    
+		
+					
 	case 'B':
 	case 'b':
+	leer_pacientes();
+	break;	
 		
 		
 	case 'C':
-	case 'c':		
+	case 'c':	
+	ver_datos();
+	break;	
 	
 	
 	case 'D':
 	case 'd':
+	borrar();
+	break;
 	
 	default:
 	puts ("No ha pulsado un caracter valido");
