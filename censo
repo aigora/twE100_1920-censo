@@ -95,7 +95,7 @@ void main(){
 } while ((opcion == 's')  || (opcion == 'S'));
 
 	Cierre ();
-	
+	system ("pause");
 }
 
 
