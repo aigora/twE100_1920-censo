@@ -19,11 +19,13 @@ TFechaN FechaN;
 }paciente;
 
 void presentacion     (void);
+char eleccion         (void);
 void agregarPaciente  (void);
-void leer_pacientes   (void)
+void leerTodo         (void);
+
 void borrar           (void);
 void Cierre           (void);
-char eleccion         (void);
+
 
 void main(){
 	char opcion;
@@ -42,17 +44,20 @@ void main(){
 	case 'A':
 	case 'a':
 	agregarPaciente();
+	
     break;    
 		
 					
 	case 'B':
 	case 'b':
-	leer_pacientes();
+	leerTodo();
+	
 	break;	
 		
 		
 	case 'C':
-	case 'c':	
+	case 'c':
+	
 	ver_datos();
 	break;	
 	
@@ -161,12 +166,31 @@ void agregarPaciente(void)
     
         g=fopen("basedatos.txt","a");
         
+        fprintf(g,"%s  ",p.DNI);
+        fprintf(g,"%i/%i/%i  ",p.FechaN.Dia,p.FechaN.Mes,p.FechaN.Anno);
+        fprintf(g,"%s  ",p.COVID);
         fprintf(g,"%s  ",p.nombre);
         fprintf(g,"%s  ",p.apellido1);
-        fprintf(g,"%s  ",p.apellido2);
-        fprintf(g,"%d/%d/%d  ",p.FechaN.Dia,p.FechaN.Mes,p.FechaN.Anno);
-        fprintf(g,"%s  ",p.COVID);
-        fprintf(g,"%s\n",p.DNI);
+        fprintf(g,"%s\n",p.apellido2);
         
         fclose(g);
 }
+
+void leerTodo (void){
+	FILE* g;
+	char aux2 [100];
+	
+	printf("DNI  ||NACIMIENTO||COVID|| NOMBRE Y APELLIDOS \n\n");
+	g=fopen("basedatos.txt","r");
+	
+	while(!feof(g))
+{
+	fgets(aux2,100,g);
+	if(!feof(g)){
+		printf("%s",aux2);
+	}
+	
+}
+fclose(g);
+}
+
