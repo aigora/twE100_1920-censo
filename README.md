@@ -11,4 +11,6 @@ Juan Manuel Samaniego Franco @ Juan-samaniego
 ## Objetivos del trabajo
 
 Ya hemos incluido el uso de fichuros y la funcion de agregar datos al mismo
-OBJETIVO ACTUAL: Visualizacion de la lista de los pacientes
+Hemos mejorado la entrada y la lectura de datos, facilitando la creacion de funciones
+
+OBJETIVO ACTUAL: A partir de la mejora crear una funcion de buscar 1 paciente a partir del dni
