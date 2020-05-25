@@ -150,7 +150,7 @@ void agregarPaciente(void)
 //como puede ser el ingreso de dias negativos o una cantidad absurda como 32
 
         	while(p.FechaN.Dia>31 || p.FechaN.Dia<1){
-        		printf("El dia de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        		printf("El dia de nacimiento ingresado no es valido, porfavor reintroduzcalo \n");
         		scanf("%d",&p.FechaN.Dia);
 			}
 			
@@ -160,19 +160,19 @@ void agregarPaciente(void)
         
         	if(p.FechaN.Dia>29){
         		while(p.FechaN.Mes==2){
-        			printf("El mes de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        			printf("El mes de nacimiento ingresado no es valido, porfavor reintroduzcalo \n");
         			scanf("%d",&p.FechaN.Mes);
 				}
 			}
 			if(p.FechaN.Dia>30){
         		while(p.FechaN.Mes==2 || p.FechaN.Mes==4 || p.FechaN.Mes==6 || p.FechaN.Mes==9 || p.FechaN.Mes==11 ){
-        			printf("El mes de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        			printf("El mes de nacimiento ingresado no es valido, porfavor reintroduzcalo \n");
         			scanf("%d",&p.FechaN.Mes);
 				}
 			}
 		
         	while(p.FechaN.Mes>12 || p.FechaN.Mes<1){
-        		printf("El mes de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        		printf("El mes de nacimiento ingresado no es valido, porfavor reintroduzcalo \n");
         		scanf("%d",&p.FechaN.Mes);
 			}
         
@@ -181,7 +181,7 @@ void agregarPaciente(void)
         scanf("%d",&p.FechaN.Anno);
 
 			while(p.FechaN.Anno<1900 || p.FechaN.Anno>2020){
-				printf("El a%co de nacimiento ingresado no es valido, porfavor reintrduzcalo \n",164);
+				printf("El a%co de nacimiento ingresado no es valido, porfavor reintroduzcalo \n",164);
         		scanf("%d",&p.FechaN.Anno);
 			}
     
