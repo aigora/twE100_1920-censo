@@ -89,7 +89,6 @@ void main(){
 
 	Cierre ();
 	
-	return 123;
 }
 
 
