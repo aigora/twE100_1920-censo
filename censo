@@ -1,23 +1,35 @@
 #include<stdio.h>
 #include<string.h>
 
+
+typedef struct
+{
+	int Dia;
+	int Mes;
+	int Anno;
+} TFechaN;
+
 typedef struct 
 {
 char DNI[50];
 char nombre[50];
 char apellido[50];
 char COVID[50];
+TFechaN FechaN; 
 }paciente;
 
-void presentacion(void);
-void reg_paciente(void);
-void leer_pacientes(void)
-void borrar(void);
-void Cierre (void);
-char eleccion (void);
+void presentacion     (void);
+void agregarPaciente  (void);
+void leer_pacientes   (void)
+void borrar           (void);
+void Cierre           (void);
+char eleccion         (void);
 
 void main(){
 	char opcion;
+	FILE *g;
+	g= fopen ("basedatos.txt","a");
+    	fclose (g);
 	
    do {
    	
@@ -29,7 +41,7 @@ void main(){
     
 	case 'A':
 	case 'a':
-	reg_paciente();
+	agregarPaciente();
     break;    
 		
 					
@@ -61,6 +73,7 @@ void main(){
 	Cierre ();
 	
 	return 123;
+}
 
 
 void presentacion (void)
@@ -80,4 +93,80 @@ char eleccion (void)
 	fflush (stdin);
 	
 	return l;
+}
+
+void agregarPaciente(void)
+{
+	
+	    FILE*g;  
+	    paciente p;
+	    
+	    printf("El paciente posee COVID19 (SI/NO) \n");
+        gets (p.COVID);
+
+	    printf("Ingrese el 1er apellido \n");
+        gets (p.apellido1);
+        
+        fflush(stdin);
+        printf("Ingrese el 2do apellido \n");
+        gets (p.apellido2);
+        
+        fflush(stdin);
+        printf("Ingrese el nombre \n");
+        gets (p.nombre);
+        
+        fflush(stdin);
+        printf("Ingrese el DNI \n");
+        gets(p.DNI);
+        
+        fflush(stdin);
+        printf("Ingrese el numero del dia de nacimiento \n");
+        scanf("%d",&p.FechaN.Dia);
+        
+        	while(p.FechaN.Dia>31 || p.FechaN.Dia<1){
+        		printf("El dia de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        		scanf("%d",&p.FechaN.Dia);
+			}
+			
+        fflush(stdin);
+        printf("Ingrese el numero del mes de nacimiento \n");
+        scanf("%d",&p.FechaN.Mes);
+        
+        	if(p.FechaN.Dia>29){
+        		while(p.FechaN.Mes==2){
+        			printf("El mes de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        			scanf("%d",&p.FechaN.Mes);
+				}
+			}
+			if(p.FechaN.Dia>30){
+        		while(p.FechaN.Mes==2 || p.FechaN.Mes==4 || p.FechaN.Mes==6 || p.FechaN.Mes==9 || p.FechaN.Mes==11 ){
+        			printf("El mes de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        			scanf("%d",&p.FechaN.Mes);
+				}
+			}
+		
+        	while(p.FechaN.Mes>12 || p.FechaN.Mes<1){
+        		printf("El mes de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
+        		scanf("%d",&p.FechaN.Mes);
+			}
+        
+        fflush(stdin);
+        printf("Ingrese el numero del a%co de nacimiento \n",164);
+        scanf("%d",&p.FechaN.Anno);
+
+			while(p.FechaN.Anno<1900 || p.FechaN.Anno>2020){
+				printf("El a%co de nacimiento ingresado no es valido, porfavor reintrduzcalo \n",164);
+        		scanf("%d",&p.FechaN.Anno);
+			}
+    
+        g=fopen("basedatos.txt","a");
+        
+        fprintf(g,"%s \t",p.nombre);
+        fprintf(g,"%s \t",p.apellido1);
+        fprintf(g,"%s \t",p.apellido2);
+        fprintf(g,"%d / %d / %d \t",p.FechaN.Dia,p.FechaN.Mes,p.FechaN.Anno);
+        fprintf(g,"%s \t",p.COVID);
+        fprintf(g,"%s \t \n",p.DNI);
+        
+        fclose(g);
 }
