@@ -10,4 +10,5 @@ Juan Manuel Samaniego Franco @ Juan-samaniego
 
 ## Objetivos del trabajo
 
-OBJETIVO ACTUAL: Uso de ficheros txt
+Ya hemos incluido el uso de fichuros y la funcion de agregar datos al mismo
+OBJETIVO ACTUAL: Visualizacion de la lista de los pacientes
