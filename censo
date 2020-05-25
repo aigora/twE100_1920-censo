@@ -98,7 +98,7 @@ char eleccion (void)
 {
 	char l;
 	puts ("A. Registrar paciente");
-	puts ("B. Ver pacientes");
+	puts ("B. Ver lista de pacientes");
 	puts ("C. Ver datos de un paciente");
 	puts ("D. Borrar paciente");
 	scanf ("%c", &l);
