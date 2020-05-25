@@ -43,29 +43,34 @@ void main(){
     
 	case 'A':
 	case 'a':
+	
 	agregarPaciente();
 	
-    break;    
+    		break;    
 		
 					
 	case 'B':
 	case 'b':
+	
 	leerTodo();
 	
-	break;	
+		break;	
 		
 		
 	case 'C':
 	case 'c':
 	
 	ver_datos();
-	break;	
+	
+		break;	
 	
 	
 	case 'D':
 	case 'd':
+	
 	borrar();
-	break;
+	
+		break;
 	
 	default:
 	puts ("No ha pulsado un caracter valido");
