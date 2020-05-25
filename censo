@@ -19,19 +19,24 @@ char COVID[50];
 TFechaN FechaN;  
 }paciente;
 
+// funciones de organizacion
 void presentacion     (void);
 char eleccion         (void);
 char Repetir          (void);
+void Cierre           (void);
+
+//funciones operativas
 void agregarPaciente  (void);
 void leerTodo         (void);
 
 
-void Cierre           (void);
+
 
 
 void main(){
 	char opcion;
-	FILE *g;
+	FILE *g;    //para garantizar que se cree el txt, este proceso si bien es trivial o arcaico lo crea y lo cierra
+	            //o en caso de que exista lo abre y lo cierra. No es necesario, pero nos brinda seguridad.
 	g= fopen ("basedatos.txt","a");
     	fclose (g);
 	
@@ -134,7 +139,10 @@ void agregarPaciente(void)
         fflush(stdin);
         printf("Ingrese el numero del dia de nacimiento \n");
         scanf("%d",&p.FechaN.Dia);
-        
+	
+//los siguientes bucles garantizan de que las fechas ingresadas contengan cierta coherencia
+//como puede ser el ingreso de dias negativos o una cantidad absurda como 32
+
         	while(p.FechaN.Dia>31 || p.FechaN.Dia<1){
         		printf("El dia de nacimiento ingresado no es valido, porfavor reintrduzcalo \n");
         		scanf("%d",&p.FechaN.Dia);
@@ -193,7 +201,7 @@ void leerTodo (void){
 	while(!feof(g))
 {
 	fgets(aux2,100,g);
-	if(!feof(g)){
+	if(!feof(g)){ //este if garantiza que no se copien 2 veces el ultimo paciente
 		printf("%s",aux2);
 	}
 	
@@ -216,7 +224,7 @@ char Repetir (void)
 void Cierre (void)
 {
 
-puts ("\n\nGracias por consultar la base de datos...");
+puts ("\n\nGracias por consultar la base de datos...\n\n");
 	
 }
 
