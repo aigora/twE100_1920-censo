@@ -1,6 +1,12 @@
 #include<stdio.h>
 #include<string.h>
 
+typedef struct
+{
+	char d[50];
+	char m[50];
+	char a[50];
+} conversor;
 
 typedef struct
 {
@@ -16,7 +22,8 @@ char nombre[50];
 char apellido1[50];
 char apellido2[50];
 char COVID[50];
-TFechaN FechaN;  
+TFechaN FechaN;
+conversor Nacimiento;
 }paciente;
 
 // funciones de organizacion
@@ -178,39 +185,80 @@ void agregarPaciente(void)
         		scanf("%d",&p.FechaN.Anno);
 			}
     
+    //estas funciones convierten int a string, lo que nos ayuda a que con printf el programa identifique correctamente
+    // cada seccion ya que para funciones como la de buscar paciente nos parecio indispensable al no encontrar otra solucion.
+    			sprintf(p.Nacimiento.d,"%i",p.FechaN.Dia);
+			sprintf(p.Nacimiento.m,"%i",p.FechaN.Mes);
+			sprintf(p.Nacimiento.a,"%i",p.FechaN.Anno);
+    
+    
+    
         g=fopen("basedatos.txt","a");
         
-        fprintf(g,"%s  ",p.DNI);
-        fprintf(g,"%i/%i/%i  ",p.FechaN.Dia,p.FechaN.Mes,p.FechaN.Anno);
-        fprintf(g,"%s  ",p.COVID);
         fprintf(g,"%s  ",p.nombre);
         fprintf(g,"%s  ",p.apellido1);
-        fprintf(g,"%s\n",p.apellido2);
+        fprintf(g,"%s  ",p.apellido2);
+        fprintf(g,"%s  ",p.Nacimiento.d);
+        fprintf(g,"%s  ",p.Nacimiento.m);
+        fprintf(g,"%s  ",p.Nacimiento.a);
+        fprintf(g,"%s  ",p.DNI);
+        fprintf(g,"%s\n",p.COVID);
         
         fclose(g);
 }
 
 void leerTodo (void){
 	FILE* g;
-	char aux2 [100];
+	paciente p;
+	char aux [100];
+	int j=0;
+	int i;
 	
-	printf("DNI  ||NACIMIENTO||COVID|| NOMBRE Y APELLIDOS \n\n");
+	//Esto calcula el numero de pacientes, es decir el numero de lineas, y
+	//lo almacen en j. Enla siguiente parte,en el bucle for,nos daba error
+	//debido a que la ultima linea se leia dos veces por lo que agregamos el
+	//if que puede verse que evita que la ultima linea se cuente 2 veces
+	
 	g=fopen("basedatos.txt","r");
+	while(!feof(g)){	
+		fgets(aux,100,g);
+			if(!feof(g)){
+				j++;
+			}
+	}
+fclose(g);
 	
-	while(!feof(g))
-{
-	fgets(aux2,100,g);
-	if(!feof(g)){ //este if garantiza que no se copien 2 veces el ultimo paciente
-		printf("%s",aux2);
+	g=fopen("basedatos.txt","r"); //si bien es repetitivo no encontramos mejor solucion que reabrir el fichero
+	
+	printf("Nombre  || Apellidos  ||  Nacimiento  ||  DNI  ||  COVID");
+		
+	for(i=0;i<j;i++){
+//se leen los datos del txt y luego en el printf se imprimen en pantalla para el usuario
+		fscanf(g,"%s",p.nombre);
+		fscanf(g,"%s",p.apellido1);
+		fscanf(g,"%s",p.apellido2);
+		fscanf(g,"%s",p.Nacimiento.d);
+    		fscanf(g,"%s",p.Nacimiento.m);
+    		fscanf(g,"%s",p.Nacimiento.a);
+		fscanf(g,"%s",p.DNI);
+		fscanf(g,"%s",p.COVID);
+
+
+    		printf("\n%s  ",p.nombre);
+		printf("%s ",p.apellido1);
+		printf("%s  ",p.apellido2);
+		printf("%s/",p.Nacimiento.d);
+    		printf("%s/",p.Nacimiento.m);
+    		printf("%s \t",p.Nacimiento.a);
+		printf("%s \t",p.DNI);
+		printf("%s\n\n",p.COVID);
 	}
 	
-}
-fclose(g);
+    fclose(g);
 }
 
 
-char Repetir (void)
-{
+char Repetir (void){
 	char letra;
 	printf ("\n\250Desea realizar otra operaci\242n?:   ");
 	scanf ("%c", &letra);
@@ -220,10 +268,7 @@ char Repetir (void)
 }
 
 
-void Cierre (void)
-{
-
+void Cierre (void){
 puts ("\n\nGracias por consultar la base de datos...\n\n");
-	
 }
 
