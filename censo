@@ -199,3 +199,10 @@ void leerTodo (void){
 fclose(g);
 }
 
+void FCierre (void)
+{
+
+puts ("\n\nGracias por consultar la base de datos...");
+	
+}
+
