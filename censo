@@ -21,10 +21,11 @@ TFechaN FechaN;
 
 void presentacion     (void);
 char eleccion         (void);
+char Repetir          (void);
 void agregarPaciente  (void);
 void leerTodo         (void);
 
-void borrar           (void);
+
 void Cierre           (void);
 
 
@@ -61,7 +62,7 @@ void main(){
 	case 'C':
 	case 'c':
 	
-	ver_datos();
+
 	
 		break;	
 	
@@ -69,7 +70,7 @@ void main(){
 	case 'D':
 	case 'd':
 	
-	borrar();
+
 	
 		break;
 	
@@ -77,7 +78,7 @@ void main(){
 	puts ("No ha pulsado un caracter valido");
 }
 
-  opcion = eleccion ();
+  opcion = Repetir ();
 
 } while ((opcion == 's')  || (opcion == 'S'));
 
@@ -97,7 +98,7 @@ char eleccion (void)
 {
 	char l;
 	puts ("A. Registrar paciente");
-	puts ("B. Modificar paciente");
+	puts ("B. Ver pacientes");
 	puts ("C. Ver datos de un paciente");
 	puts ("D. Borrar paciente");
 	scanf ("%c", &l);
@@ -200,7 +201,19 @@ void leerTodo (void){
 fclose(g);
 }
 
-void FCierre (void)
+
+char Repetir (void)
+{
+	char letra;
+	printf ("\n\250Desea realizar otra operaci\242n?:   ");
+	scanf ("%c", &letra);
+	fflush (stdin);
+	
+	return letra;
+}
+
+
+void Cierre (void)
 {
 
 puts ("\n\nGracias por consultar la base de datos...");
