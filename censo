@@ -161,12 +161,12 @@ void agregarPaciente(void)
     
         g=fopen("basedatos.txt","a");
         
-        fprintf(g,"%s \t",p.nombre);
-        fprintf(g,"%s \t",p.apellido1);
-        fprintf(g,"%s \t",p.apellido2);
-        fprintf(g,"%d / %d / %d \t",p.FechaN.Dia,p.FechaN.Mes,p.FechaN.Anno);
-        fprintf(g,"%s \t",p.COVID);
-        fprintf(g,"%s \t \n",p.DNI);
+        fprintf(g,"%s  ",p.nombre);
+        fprintf(g,"%s  ",p.apellido1);
+        fprintf(g,"%s  ",p.apellido2);
+        fprintf(g,"%d/%d/%d  ",p.FechaN.Dia,p.FechaN.Mes,p.FechaN.Anno);
+        fprintf(g,"%s  ",p.COVID);
+        fprintf(g,"%s\n",p.DNI);
         
         fclose(g);
 }
