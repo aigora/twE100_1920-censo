@@ -101,7 +101,7 @@ void main(){
 
 void presentacion (void)
 {
-	puts ("Este programa es una base de datos.\n\n");
+	puts ("Este programa es un registro de pacientes.\n\n");
 	puts ("Por favor indique pulsando la letra correspondiente la operacion que desea realizar\n");
 }
 
