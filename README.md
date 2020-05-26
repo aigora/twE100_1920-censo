@@ -1,6 +1,6 @@
 # Censo
 
-El trabajo consiste en simular una base de datos que permita interactuar con los datos proporcionados por el usuario. Permitiendo agregar, modificar, eliminar o buscar pacientes registrados.
+El trabajo consiste en simular una base de datos que permita interactuar con los datos proporcionados por el usuario. Permitiendo agregar, eliminar o buscar pacientes registrados.
 
 ## Integrantes del equipo
 
@@ -10,7 +10,4 @@ Juan Manuel Samaniego Franco @ Juan-samaniego
 
 ## Objetivos del trabajo
 
-Ya hemos incluido el uso de fichuros y la funcion de agregar datos al mismo
-Hemos mejorado la entrada y la lectura de datos, facilitando la creacion de funciones
-
-OBJETIVO ACTUAL: A partir de la mejora crear una funcion de buscar 1 paciente a partir del dni
+Objetivos cumplidos, el codigo funciona segun lo esperado
