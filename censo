@@ -422,7 +422,7 @@ if (y==j){
 
 char Repetir (void){
 	char letra;
-	printf ("\n\250Desea realizar otra operaci\242n?:   ");
+	printf ("\n\250Desea realizar otra operaci\242n? (S/N) \n   ");
 	fflush (stdin);  
 	scanf ("%c", &letra);
 	fflush (stdin);
