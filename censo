@@ -36,6 +36,7 @@ void Cierre           (void);
 void agregarPaciente  (void);
 void leerTodo         (void);
 void buscarPaciente   (void);
+void borrarPaciente   (void);
 
 
 
@@ -82,7 +83,7 @@ void main(){
 	case 'D':
 	case 'd':
 	
-
+	borrarPaciente();
 	
 		break;
 	
@@ -316,6 +317,107 @@ fclose(g);
 if(x==1){
         printf("No se ha encontrado ningun resultado\n");
 }
+}
+
+void borrarPaciente(void){
+	FILE* g;
+	FILE* h;
+	paciente p;
+	int j=0;
+	int i;
+	int y=0;
+	char aux [100];
+	char dni [20];
+
+	
+	printf("Para borrar al paciente ingrese a continuacion el DNI del paciente\n");
+	fflush(stdin);
+	gets(dni);
+	
+	//contamos el numero de pacientes con estas sentencias
+	g=fopen("basedatos.txt","r");
+	while(!feof(g)){	
+	fgets(aux,100,g);
+	if(!feof(g)){
+		j++;
+	}
+}
+		fclose(g);
+		
+			g=fopen("basedatos.txt","r");
+			h=fopen("temporal.txt","a");
+		//para borrar lo que haremos sera copiar todos los pacientes menos el que no queremos a un texto temporal
+		//luego simplemente borraremos toda la informacion de basedatos.txt y pasaremos la informacion del texto 
+		//temporal a basedatos.txt 
+		
+		for(i=0;i<j;i++){ 
+		
+		fscanf(g,"%s",p.DNI);        //esto copia la informacion de todos los paciente
+		fscanf(g,"%s",p.nombre);
+		fscanf(g,"%s",p.apellido1);
+		fscanf(g,"%s",p.apellido2);
+		fscanf(g,"%s",p.Nacimiento.d);
+    	fscanf(g,"%s",p.Nacimiento.m);
+    	fscanf(g,"%s",p.Nacimiento.a);
+		fscanf(g,"%s",p.COVID);
+	
+	
+	
+	 if(strcmp(p.DNI,dni)!=0){ //aqui solo copiamos al txt temporal aquellos pacientes que no
+	                           //coincidan con el DNI ingresado por el usuario
+							   		
+		fprintf(h,"%s  ",p.DNI);
+        fprintf(h,"%s  ",p.nombre);
+        fprintf(h,"%s  ",p.apellido1);
+        fprintf(h,"%s  ",p.apellido2);
+        fprintf(h,"%s  ",p.Nacimiento.d);
+        fprintf(h,"%s  ",p.Nacimiento.m);
+        fprintf(h,"%s  ",p.Nacimiento.a);
+        fprintf(h,"%s\n",p.COVID);
+		
+		y++; //esta varibe es importante para definir el siguiente bucle de pasar datos del txt temporal a basedatos.txt  
+	}
+}
+fclose(g);
+fclose(h);
+
+			g=fopen("basedatos.txt","w"); //borramos la informacion previa
+			h=fopen("temporal.txt","r");
+
+	for(i=0;i<y;i++)
+	{
+	//copiamos toda la informacion del texto temporal al registro
+		fscanf(h,"%s",p.DNI);
+		fscanf(h,"%s",p.nombre);
+		fscanf(h,"%s",p.apellido1);
+		fscanf(h,"%s",p.apellido2);
+		fscanf(h,"%s",p.Nacimiento.d);
+    	fscanf(h,"%s",p.Nacimiento.m);
+    	fscanf(h,"%s",p.Nacimiento.a);
+		fscanf(h,"%s",p.COVID);
+
+        fprintf(g,"%s  ",p.DNI);
+        fprintf(g,"%s  ",p.nombre);
+        fprintf(g,"%s  ",p.apellido1);
+        fprintf(g,"%s  ",p.apellido2);
+        fprintf(g,"%s  ",p.Nacimiento.d);
+        fprintf(g,"%s  ",p.Nacimiento.m);
+        fprintf(g,"%s  ",p.Nacimiento.a);
+        fprintf(g,"%s\n",p.COVID);
+}
+fclose(g);
+fclose(h);
+
+//si y=j significa que todos los dni eran distintos al introducido 
+//en else en realidad y=j-1 ya que se encontro un dni.
+if (y==j){
+	printf("No se ha encontrado paciente con DNI: %s\n\n",dni);
+}else{
+	printf("Se ha borrado el paciente con DNI:  %s  con exito\n\n",dni);
+}
+
+			h=fopen("temporal.txt","w"); //por si se necesita volver a usar la funcion
+			fclose(h);                   //borramos la informacion del txt temporal
 }
 
 char Repetir (void){
