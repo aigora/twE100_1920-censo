@@ -35,7 +35,7 @@ void Cierre           (void);
 //funciones operativas
 void agregarPaciente  (void);
 void leerTodo         (void);
-
+void buscarPaciente   (void);
 
 
 
@@ -73,9 +73,9 @@ void main(){
 		
 	case 'C':
 	case 'c':
-	
+	 
+	buscarPaciente ();
 
-	
 		break;	
 	
 	
@@ -241,22 +241,82 @@ fclose(g);
 	fscanf(g,"%s",p.apellido1);
 	fscanf(g,"%s",p.apellido2);
 	fscanf(g,"%s",p.Nacimiento.d);
-    	fscanf(g,"%s",p.Nacimiento.m);
-    	fscanf(g,"%s",p.Nacimiento.a);
+    fscanf(g,"%s",p.Nacimiento.m);
+    fscanf(g,"%s",p.Nacimiento.a);
 	fscanf(g,"%s",p.COVID);
 
 	printf("\n%-10s \t",p.DNI);
-    	printf("%-15s",p.nombre);
+    printf("%-15s",p.nombre);
 	printf("%-10s ",p.apellido1);
 	printf("%-16s",p.apellido2);
 	printf("%-2s/",p.Nacimiento.d);
-    	printf("%-2s/",p.Nacimiento.m);
-    	printf("%-10s",p.Nacimiento.a);
+    printf("%-2s/",p.Nacimiento.m);
+    printf("%-10s",p.Nacimiento.a);
 	printf("%s\n\n",p.COVID);
 	}
     fclose(g);
 }
 
+void buscarPaciente (void){
+    FILE* g;
+    paciente p;
+    int j=0;
+    int i;
+    int x=1;
+    char aux [100];
+    char dni [20];
+
+    
+    fflush(stdin);
+    printf("introduzcan el DNI del paciente\n");
+    gets(dni);
+
+        
+    g=fopen("basedatos.txt","r");
+    while(!feof(g)){    
+    fgets(aux,100,g);
+    if(!feof(g)){
+        j++;
+    }
+}
+        fclose(g);
+        
+        
+        g=fopen("basedatos.txt","r");
+        
+        for(i=0;i<j;i++){
+        
+    fscanf(g,"%s",p.DNI);
+    fscanf(g,"%s",p.nombre);
+    fscanf(g,"%s",p.apellido1);
+    fscanf(g,"%s",p.apellido2);
+    fscanf(g,"%s",p.Nacimiento.d);
+    fscanf(g,"%s",p.Nacimiento.m);
+    fscanf(g,"%s",p.Nacimiento.a);
+    fscanf(g,"%s",p.COVID);
+    
+        
+     if(strcmp(p.DNI,dni)==0){
+         
+         printf("\n%s \t",p.DNI);
+         printf("%s,  ",p.nombre);
+        printf("%s ",p.apellido1);
+        printf("%-15s  ",p.apellido2);
+        printf("%s/",p.Nacimiento.d);
+        printf("%s/",p.Nacimiento.m);
+        printf("%s \t",p.Nacimiento.a);
+        printf("%s\n\n",p.COVID);
+        x=0;
+        
+    }     
+}
+fclose(g);
+
+ 
+if(x==1){
+        printf("No se ha encontrado ningun resultado\n");
+}
+}
 
 char Repetir (void){
 	char letra;
@@ -272,4 +332,3 @@ char Repetir (void){
 void Cierre (void){
 puts ("\n\nGracias por consultar la base de datos...\n\n");
 }
-
