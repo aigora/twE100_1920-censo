@@ -1,6 +1,6 @@
 # Censo
 
-El trabajo consiste en simular una base de datos que permita interactuar con los datos proporcionados por el usuario. Permitiendo agregar, eliminar o buscar pacientes registrados.
+El trabajo consiste en simular un registro de pacientes que permita interactuar con los datos proporcionados por el usuario. Permitiendo agregar, eliminar o buscar pacientes registrados.
 
 ## Integrantes del equipo
 
