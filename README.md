@@ -6,7 +6,7 @@ El trabajo consiste en simular un registro de pacientes que permita interactuar 
 
 Juan Cruz Sabaris Forciniti @jc-sabaris
 
-Juan Manuel Samaniego Franco @ Juan-samaniego
+Juan Manuel Samaniego Franco @Juan-samaniego
 
 ## Objetivos del trabajo
 
