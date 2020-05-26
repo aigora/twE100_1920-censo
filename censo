@@ -432,5 +432,5 @@ char Repetir (void){
 
 
 void Cierre (void){
-puts ("\n\nGracias por consultar la base de datos...\n\n");
+puts ("\n\nGracias por consultar el registro de pacientes\n\n");
 }
