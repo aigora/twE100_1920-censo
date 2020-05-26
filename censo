@@ -195,13 +195,13 @@ void agregarPaciente(void)
     
         g=fopen("basedatos.txt","a");
         
+        fprintf(g,"%s  ",p.DNI);
         fprintf(g,"%s  ",p.nombre);
         fprintf(g,"%s  ",p.apellido1);
         fprintf(g,"%s  ",p.apellido2);
         fprintf(g,"%s  ",p.Nacimiento.d);
         fprintf(g,"%s  ",p.Nacimiento.m);
         fprintf(g,"%s  ",p.Nacimiento.a);
-        fprintf(g,"%s  ",p.DNI);
         fprintf(g,"%s\n",p.COVID);
         
         fclose(g);
@@ -230,30 +230,30 @@ fclose(g);
 	
 	g=fopen("basedatos.txt","r"); //si bien es repetitivo no encontramos mejor solucion que reabrir el fichero
 	
-	printf("Nombre  || Apellidos  ||  Nacimiento  ||  DNI  ||  COVID");
+	printf("DNI        ||   NOMBRE   ||        APELLIDOS         ||  NACIMIENTO  ||  COVID\n");
 		
 	for(i=0;i<j;i++){
-//se leen los datos del txt y luego en el printf se imprimen en pantalla para el usuario
-		fscanf(g,"%s",p.nombre);
-		fscanf(g,"%s",p.apellido1);
-		fscanf(g,"%s",p.apellido2);
-		fscanf(g,"%s",p.Nacimiento.d);
-    		fscanf(g,"%s",p.Nacimiento.m);
-    		fscanf(g,"%s",p.Nacimiento.a);
-		fscanf(g,"%s",p.DNI);
-		fscanf(g,"%s",p.COVID);
-
-
-    		printf("\n%s  ",p.nombre);
-		printf("%s ",p.apellido1);
-		printf("%s  ",p.apellido2);
-		printf("%s/",p.Nacimiento.d);
-    		printf("%s/",p.Nacimiento.m);
-    		printf("%s \t",p.Nacimiento.a);
-		printf("%s \t",p.DNI);
-		printf("%s\n\n",p.COVID);
-	}
 	
+//se leen los datos del txt y luego en el printf se imprimen en pantalla para el usuario
+
+	fscanf(g,"%s",p.DNI);
+	fscanf(g,"%s",p.nombre);
+	fscanf(g,"%s",p.apellido1);
+	fscanf(g,"%s",p.apellido2);
+	fscanf(g,"%s",p.Nacimiento.d);
+    	fscanf(g,"%s",p.Nacimiento.m);
+    	fscanf(g,"%s",p.Nacimiento.a);
+	fscanf(g,"%s",p.COVID);
+
+	printf("\n%-10s \t",p.DNI);
+    	printf("%-15s",p.nombre);
+	printf("%-10s ",p.apellido1);
+	printf("%-16s",p.apellido2);
+	printf("%-2s/",p.Nacimiento.d);
+    	printf("%-2s/",p.Nacimiento.m);
+    	printf("%-10s",p.Nacimiento.a);
+	printf("%s\n\n",p.COVID);
+	}
     fclose(g);
 }
 
